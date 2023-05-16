@@ -50,11 +50,12 @@ func main() {
 	// router gin
 
 	r := gin.Default()
+	r.GET("/", controllers.Cekaja)
 	r.GET("/persons", controllers.GetAllPerson)
 	r.POST("/persons", controllers.InsertPerson)
 	r.PUT("/persons/:id", controllers.UpdatePerson)
 	r.DELETE("/persons/:id", controllers.DeletePerson)
 
-	r.Run("Listening" + os.Getenv(":PG_PORT"))
+	r.Run(os.Getenv(":PG_PORT"))
 
 }
