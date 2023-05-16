@@ -12,7 +12,8 @@ import (
 
 func Cekaja(c *gin.Context) {
 	c.JSON(200, gin.H{
-		"Message": "Haloo selamat datang di API ILHAM",
+		"Message": true,
+		"data":    "COBAAPI",
 	})
 }
 
