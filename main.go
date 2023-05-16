@@ -55,6 +55,6 @@ func main() {
 	r.PUT("/persons/:id", controllers.UpdatePerson)
 	r.DELETE("/persons/:id", controllers.DeletePerson)
 
-	r.Run("")
+	r.Run("localhost:8080")
 
 }
