@@ -50,6 +50,7 @@ func main() {
 	// router gin
 
 	r := gin.Default()
+	r.GET("/", controllers.Cekaja)
 	r.GET("/persons", controllers.GetAllPerson)
 	r.POST("/persons", controllers.InsertPerson)
 	r.PUT("/persons/:id", controllers.UpdatePerson)

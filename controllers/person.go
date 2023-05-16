@@ -10,6 +10,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func Cekaja(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"Message": "cek",
+	})
+}
+
 func GetAllPerson(c *gin.Context) {
 	var (
 		result gin.H
