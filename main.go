@@ -56,6 +56,7 @@ func main() {
 	r.PUT("/persons/:id", controllers.UpdatePerson)
 	r.DELETE("/persons/:id", controllers.DeletePerson)
 
-	r.Run(os.Getenv(":PG_PORT"))
+	r.Run(os.Getenv("PG_PORT"))
+	fmt.Println(r.Run())
 
 }
