@@ -55,6 +55,6 @@ func main() {
 	r.PUT("/persons/:id", controllers.UpdatePerson)
 	r.DELETE("/persons/:id", controllers.DeletePerson)
 
-	r.Run("localhost:8080")
+	r.Run("Listening" + os.Getenv("PG_PORT"))
 
 }
