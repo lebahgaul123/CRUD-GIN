@@ -5,8 +5,10 @@ import (
 	"crud-gin/database"
 	"database/sql"
 	"fmt"
+	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
@@ -18,14 +20,19 @@ var (
 func main() {
 
 	// ENV Config
-	// err = godotenv.Load("config/.env")
-	// if err != nil {
-	// 	fmt.Println("failed load file enviroment")
-	// } else {
-	// 	fmt.Println("Success read file enviroment")
-	// }
+	err = godotenv.Load("config/.env")
+	if err != nil {
+		fmt.Println("failed load file enviroment")
+	} else {
+		fmt.Println("Success read file enviroment")
+	}
 
-	psqlInfo := "PxzgJwJV60QSDHMF00bl psql -h containers-us-west-73.railway.app -U postgres -p 7511 -d railway"
+	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
+		os.Getenv("PG_HOST"),
+		os.Getenv("PG_PORT"),
+		os.Getenv("PG_USER"),
+		os.Getenv("PG_PASSWORD"),
+		os.Getenv("PG_DATABASE"))
 	fmt.Println(psqlInfo)
 	DB, err = sql.Open("postgres", psqlInfo)
 	err = DB.Ping()
