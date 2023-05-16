@@ -44,7 +44,6 @@ func main() {
 	}
 
 	database.DbMigrate(DB)
-
 	defer DB.Close()
 
 	// router gin

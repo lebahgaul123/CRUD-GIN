@@ -12,7 +12,7 @@ import (
 
 func Cekaja(c *gin.Context) {
 	c.JSON(200, gin.H{
-		"Message": "cek",
+		"Message": "Haloo selamat datang di API ILHAM",
 	})
 }
 
